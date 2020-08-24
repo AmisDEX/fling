@@ -5,17 +5,17 @@
   <title>Fling - OpenRelay</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="A dApp that lets you send tokens to multiple accounts at once!" />
+  <meta name="description" content="A dApp that lets you send ETC tokens to multiple accounts at once!" />
   <link rel="stylesheet" type="text/css" href="./css/styles.css" />
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-99904423-5"></script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-99904423-5"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
     gtag('config', 'UA-99904423-5');
-  </script>
+  </script>  -->
 
   <script src="./js/anime.min.js"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
@@ -91,7 +91,7 @@
           });
         }
         checkAccounts();
-        var multiSendAddress = "0xcc16643aa020fc23011c209e7d3f1abf2240ead1";
+        var multiSendAddress = "0x96df249e56027b35c197cd0b31ba571b02c7471e";
         var token = web3.eth.contract([{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"}],"name":"approve","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_from","type":"address"},{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transfer","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"},{"name":"_spender","type":"address"}],"name":"allowance","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_from","type":"address"},{"indexed":true,"name":"_to","type":"address"},{"indexed":false,"name":"_value","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_owner","type":"address"},{"indexed":true,"name":"_spender","type":"address"},{"indexed":false,"name":"_value","type":"uint256"}],"name":"Approval","type":"event"}]);
         var multiSendContract = web3.eth.contract([{"constant":false,"inputs":[{"name":"_token","type":"address"},{"name":"addresses","type":"address[]"},{"name":"amount","type":"uint256"}],"name":"multiSend","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"addresses","type":"address[]"}],"name":"multiSendEth","outputs":[],"payable":true,"stateMutability":"payable","type":"function"}]).at(multiSendAddress);
         $(".custom_options").hide();
@@ -149,7 +149,7 @@
                     $(".allowance_loading").hide();
                     $(".unapproved").show();
                   } else {
-                    $("#allowance_pending").html('<a href="https://etherscan.io/tx/'+tx+'">View on EtherScan</a>')
+                    $("#allowance_pending").html('<a href="https://blockscout.com/etc/mainnet/tx/'+tx+'">View on Blockscout</a>')
                   }
                   $("#allowance_pending").show();
                 });
@@ -224,7 +224,7 @@
                   if(err) {
                     $(".submit_result").html(err);
                   } else {
-                    $(".submit_result").html('See your transaction on <a target="_blank" href="https://etherscan.io/tx/'+ tx + '">Etherscan</a>');
+                    $(".submit_result").html('See your transaction on <a target="_blank" href="https://blockscout.com/etc/mainnet/tx/'+ tx + '">Blockscout</a>');
                   }
                 })
               }
@@ -451,7 +451,7 @@
       <p id="sendNotice" hidden="true"></p>
     </section>
   </main>
-  <footer>&copy; <a href="https://openrelay.xyz/">Open Relay LLC</a> &mdash; <a href="./terms-of-use.html">Terms of Use</a> &mdash; View on <a href="https://etherscan.io/address/0xcc16643aa020fc23011c209e7d3f1abf2240ead1#code">Etherscan</a></footer>
+  <footer>&copy; <a href="https://openrelay.xyz/">Open Relay LLC</a> &mdash; <a href="./terms-of-use.html">Terms of Use</a> &mdash; View on <a href="https://blockscout.com/etc/mainnet/address/0x96dF249e56027b35c197cd0B31bA571B02c7471E">Blockscout</a></footer>
 </div>
 </body>
 </html>
